@@ -2,10 +2,10 @@
   "name": "test-paiement",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "PUBLISHABLE_KEY=pk_test_qjvxiDxh0lWCViJ6b1TcTBuj SECRET_KEY=sk_test_re7KippSMIV4hvt7p21fPUqu node app.js"
   },
   "keywords": [],
   "author": "",
