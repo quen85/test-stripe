@@ -16,11 +16,19 @@ app.set("view engine", "pug");
 app.use(require("body-parser").urlencoded({extended: false}));
 app.use('/public', express.static('public'));
 
-app.get("/", (req, res) =>
+app.get("/pay", (req, res) =>
 res.render("index.pug", {keyPublishable}));
 
+app.post("/pay", (req, res) =>{
+    amount = req.body.amount;
+    res.render("index.pug", {keyPublishable, amount: req.body.amount})}
+);
+
+app.get("/", (req, res) =>
+res.render("cart.pug"));
+
 app.post("/charge", (req, res) => {
-    let amount = 500;
+    amount = amount * 100;
 
     stripe.customers.create({
         email: req.body.stripeEmail,
@@ -30,10 +38,8 @@ app.post("/charge", (req, res) => {
     stripe.charges.create({
         amount,
         description: "Sample Charge",
-        currency: "usd",
+        currency: "eur",
         customer: customer.id
     }))
-    .then(charge => res.render("charge.pug"));
+    .then(charge => res.render("charge.pug", {amount: amount/100}));
 });
-
-app.listen(4567);

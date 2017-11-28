@@ -6,8 +6,9 @@ html
         script(src="https://js.stripe.com/v3/")
         div(class="container")
             h1 Paiement en ligne
-            p Montant à payer : 5€
-            form(action="/charge", method="post")
+            p Montant à payer :
+                span  #{amount} €
+            form(action="/charge", method="post", id="payment-form")
                 div(class="form")
                     div(class="row")
                         div(class="col-sm-12")
