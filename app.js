@@ -4,6 +4,12 @@ const keySecret = process.env.SECRET_KEY;
 const app = require("express")();
 const stripe = require("stripe")(keySecret);
 
+var port = process.env.PORT || 8080;
+
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
+
 app.set("view engine", "pug");
 app.use(require("body-parser").urlencoded({extended: false}));
 
