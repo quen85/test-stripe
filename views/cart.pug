@@ -1,0 +1,28 @@
+html
+    head
+        link(rel="stylesheet" href="/public/styles.css")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous")
+    body
+        script(
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous")
+        div(class="container")
+            h1 Votre panier
+            form(action="/pay", method="post", id="confirmation-form")
+                div(class="form")
+                    div(class="row")
+                        div(class="col-sm-12")
+                            label(for="livre-1") Livre n°1 Prix : 5€
+                            input(type="checkbox" name="livre-1" id="livre-1" data-amount="5")
+                        div(class="col-sm-12")
+                            label(for="livre-2") Livre n°2 Prix : 10€
+                            input(type="checkbox" name="livre-2" id="livre-2" data-amount="10")
+                        div(class="col-sm-12")
+                            label(for="livre-3") Livre n°3 Prix : 15€
+                            input(type="checkbox" name="livre-3" id="livre-3" data-amount="15")
+                        input(type="hidden" name="amount" value="0")
+                button(class="btn btn-primary") Confirmer
+            p Montant à payer :
+                span(class="amount") 0 €
+        script(src="/public/cart.js")
