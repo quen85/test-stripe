@@ -14,7 +14,7 @@ app.set("view engine", "pug");
 app.use(require("body-parser").urlencoded({extended: false}));
 
 app.get("/", (req, res) =>
-res.render("index.html", {keyPublishable}));
+res.render("index.pug", {keyPublishable}));
 
 app.post("/charge", (req, res) => {
     let amount = 500;
