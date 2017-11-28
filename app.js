@@ -2,6 +2,7 @@ const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
 
 const app = require("express")();
+const express = require("express");
 const stripe = require("stripe")(keySecret);
 
 var port = process.env.PORT || 8080;
