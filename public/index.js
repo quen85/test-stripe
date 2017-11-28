@@ -24,10 +24,14 @@ var style = {
 };
 
 // Create an instance of the card Element
-var card = elements.create('card', {style: style});
+var card = elements.create('cardNumber', {style: style});
+var cardExpiration = elements.create('cardExpiry', {style: style});
+var cardCvc = elements.create('cardCvc', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
+card.mount('#card-number');
+cardExpiration.mount('#card-expiration');
+cardCvc.mount('#card-cvc');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {

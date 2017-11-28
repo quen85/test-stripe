@@ -6,6 +6,7 @@ const express = require("express");
 const stripe = require("stripe")(keySecret);
 
 var port = process.env.PORT || 8080;
+let amount;
 
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
@@ -21,18 +22,18 @@ res.render("index.pug", {keyPublishable}));
 app.post("/charge", (req, res) => {
     let amount = 500;
 
-stripe.customers.create({
-    email: req.body.stripeEmail,
-    source: req.body.stripeToken
-})
-    .then(customer =>
-stripe.charges.create({
-    amount,
-    description: "Sample Charge",
-    currency: "usd",
-    customer: customer.id
-}))
-.then(charge => res.render("charge.pug"));
+    stripe.customers.create({
+        email: req.body.stripeEmail,
+        source: req.body.stripeToken
+    })
+        .then(customer =>
+    stripe.charges.create({
+        amount,
+        description: "Sample Charge",
+        currency: "usd",
+        customer: customer.id
+    }))
+    .then(charge => res.render("charge.pug"));
 });
 
 app.listen(4567);
