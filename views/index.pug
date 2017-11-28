@@ -2,6 +2,7 @@ html
     head
         link(rel="stylesheet" href="styles.css")
     body
+        script(src="https://js.stripe.com/v3/")
         form(action="/charge", method="post")
             div(class="form-row")
                 label(for="card-element") Credit or debit card
