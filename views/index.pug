@@ -1,6 +1,6 @@
 html
     head
-        link(rel="stylesheet" href="./styles.css")
+        link(rel="stylesheet" href="/views/styles.css")
     body
         script(src="https://js.stripe.com/v3/")
         form(action="/charge", method="post")
@@ -9,4 +9,4 @@ html
                 div(id="card-element")
                 div(id="card-errors" role="alert")
             button Submit Payment
-        script(src="./index.js")
+        script(src="/views/index.js")
