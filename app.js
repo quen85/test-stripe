@@ -12,6 +12,7 @@ app.listen(port, function() {
 
 app.set("view engine", "pug");
 app.use(require("body-parser").urlencoded({extended: false}));
+app.use('/public', express.static('public'));
 
 app.get("/", (req, res) =>
 res.render("index.pug", {keyPublishable}));
